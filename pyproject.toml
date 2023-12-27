@@ -15,6 +15,7 @@ pydantic = {extras = ["email"], version = "^2.5.3"}
 sqlalchemy = {extras = ["asincio"], version = "^2.0.23"}
 aiosqlite = "^0.19.0"
 pydantic-settings = "^2.1.0"
+alembic = "^1.13.1"
 
 
 [tool.poetry.group.dev.dependencies]
