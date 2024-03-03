@@ -1,4 +1,6 @@
-from fastapi import APIRouter, status
+from typing import Annotated
+
+from fastapi import APIRouter, status, Response
 
 from api_v1.products import crud
 from api_v1.products.dependencies import SessionDep, ProductDep

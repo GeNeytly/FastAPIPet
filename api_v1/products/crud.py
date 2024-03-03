@@ -8,6 +8,11 @@ from api_v1.products.schemas import (
     SProductPartialUpdate,
 )
 from core.models import Product
+from crud import BaseCrud
+
+
+class ProductCrud(BaseCrud):
+    model = Product
 
 
 async def create_product(session: AsyncSession, product: SProductCreate) -> Product:

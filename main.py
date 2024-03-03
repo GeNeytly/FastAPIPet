@@ -2,6 +2,7 @@ from contextlib import asynccontextmanager
 
 import uvicorn
 from fastapi import FastAPI
+from fastapi.responses import ORJSONResponse
 
 from api_v1 import router as router_v1
 from core.config import settings
@@ -14,7 +15,7 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(lifespan=lifespan, default_response_class=ORJSONResponse)
 app.include_router(router=router_v1, prefix=settings.api_v1_prefix)
 app.include_router(items_router)
 app.include_router(users_router)

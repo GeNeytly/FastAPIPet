@@ -11,7 +11,7 @@ SessionDep = Annotated[AsyncSession, Depends(db_helper.scoped_session_dependency
 
 
 async def product_by_id(
-    product_id: Annotated[int, Path],
+    product_id: Annotated[int, Path(ge=0)],
     session: SessionDep,
 ) -> Product:
     product = await crud.get_product(session=session, product_id=product_id)
